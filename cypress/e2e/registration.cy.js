@@ -3,7 +3,7 @@ const { generateUserData } = require('../support/generateUserData');
 
 describe('Student Registration page', () => {
   before(() => {
-    cy.visit('/');
+    cy.visit('/automation-practice-form');
   });
 
   it('should register user with valid data', () => {

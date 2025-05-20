@@ -4,18 +4,27 @@ function generateUserData() {
   const firstName = faker.person.firstName();
   const lastName = faker.person.lastName();
   const email = faker.internet.email();
+
   const genderId = Math.floor(Math.random() * 3) + 1;
-  const genderIdMapping =
-      {
-        1: 'Male',
-        2: 'Female',
-        3: 'Other'
-      };
-  const mobile = Array.from({ length: 10 }, () =>
-    Math.floor(Math.random() * 10)).join('');
+  const genderMapping = {
+    1: 'Male',
+    2: 'Female',
+    3: 'Other'
+  };
+
+  const mobile = Array
+    .from({ length: 10 }, () => Math.floor(Math.random() * 10))
+    .join('');
   const dateOfBirth = generateRandomBirthDate();
   const subjects = randomSubject();
+
   const hobbiesId = Math.floor(Math.random() * 3) + 1;
+  const hobbiesMapping = {
+    1: 'Sports',
+    2: 'Reading',
+    3: 'Music'
+  };
+
   const currentAddress = faker.location.streetAddress();
   const { city, state } = randomStateCity();
 
@@ -24,14 +33,15 @@ function generateUserData() {
     lastName,
     email,
     genderId,
+    genderName: genderMapping[genderId],
     mobile,
     dateOfBirth,
     subjects,
     hobbiesId,
+    hobbyName: hobbiesMapping[hobbiesId],
     currentAddress,
-    city,
     state,
-    genderIdMapping
+    city
   };
 }
 
